@@ -28,9 +28,8 @@ class Connect4 {
     // increment count after a player has clicked
   }
   whoseTurn() {
-    const player =
-      this._count === 0 || this._count % 2 === 0 ? "First" : "Second"; // to find and print whose turn it is
-    return `${player} player's turn`;
+    const player = this._count === 0 || this._count % 2 === 0 ? 1 : 2; // to find and print whose turn it is
+    return player;
   }
   calculateStatus() {
     this._status = this._count === 42 ? "stopped" : "playing";
