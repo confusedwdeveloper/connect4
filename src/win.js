@@ -240,32 +240,32 @@ const checkWin = (connect, i, j) => {
   //   connect.calculateStatus(); // changing status so that game stops when won or tied
 
   if (isDraw(connect)) {
-    return 3;
     connect._status = "stopped";
+    return 3;
   }
 
   // check horizontal win
   if (checkHorizontal(connect, i, j, turn)) {
-    return turn;
     connect._status = "stopped";
+    return turn;
   }
 
   // Check vertical
   if (checkVertical(connect, i, j, turn)) {
-    return turn;
     connect._status = "stopped";
+    return turn;
   }
 
   // check right top to left bottom diagonal
   if (rtlbDiagonal(connect, i, j, turn)) {
-    return turn;
     connect._status = "stopped";
+    return turn;
   }
 
   // check left top to right bottom diagonal
   if (ltrbDiagonal(connect, i, j, turn)) {
-    return turn;
     connect._status = "stopped";
+    return turn;
   }
   return 0;
 };

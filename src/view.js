@@ -16,59 +16,62 @@ const generateDivElement = (connect, i, j, nestedChild) => {
 
   // Most important part. adding event Listener
   divEl.addEventListener("click", e => {
-    const arr = connect.data;
-    let result;
-    const x = connect.whoseTurn();
-    if (arr[5][j] === 0) {
-      arr[5][j] = x;
-      result = checkWin(connect, 5, j);
-      paraEl.style.display = "none";
-    } else if (arr[4][j] === 0) {
-      arr[4][j] = x;
-      result = checkWin(connect, 4, j);
-      paraEl.style.display = "none";
-    } else if (arr[3][j] === 0) {
-      arr[3][j] = x;
-      result = checkWin(connect, 3, j);
-      paraEl.style.display = "none";
-    } else if (arr[2][j] === 0) {
-      arr[2][j] = x;
-      result = checkWin(connect, 2, j);
-      paraEl.style.display = "none";
-    } else if (arr[1][j] === 0) {
-      arr[1][j] = x;
-      result = checkWin(connect, 1, j);
-      paraEl.style.display = "none";
-    } else if (arr[0][j] === 0) {
-      arr[0][j] = x;
-      result = checkWin(connect, 0, j);
-      paraEl.style.display = "none";
+    if (connect._status === "stopped") {
     } else {
-      paraEl.style.display = "block";
-    }
+      const arr = connect.data;
+      let result;
+      const x = connect.whoseTurn();
+      if (arr[5][j] === 0) {
+        arr[5][j] = x;
+        result = checkWin(connect, 5, j);
+        paraEl.style.display = "none";
+      } else if (arr[4][j] === 0) {
+        arr[4][j] = x;
+        result = checkWin(connect, 4, j);
+        paraEl.style.display = "none";
+      } else if (arr[3][j] === 0) {
+        arr[3][j] = x;
+        result = checkWin(connect, 3, j);
+        paraEl.style.display = "none";
+      } else if (arr[2][j] === 0) {
+        arr[2][j] = x;
+        result = checkWin(connect, 2, j);
+        paraEl.style.display = "none";
+      } else if (arr[1][j] === 0) {
+        arr[1][j] = x;
+        result = checkWin(connect, 1, j);
+        paraEl.style.display = "none";
+      } else if (arr[0][j] === 0) {
+        arr[0][j] = x;
+        result = checkWin(connect, 0, j);
+        paraEl.style.display = "none";
+      } else {
+        paraEl.style.display = "block";
+      }
 
-    render(connect);
-    console.log(result);
-    // Now use value of result
-    // player color div
-    const playerColorDiv = document.querySelector("#player-color");
-    const resultEl = document.querySelector("#result");
+      render(connect);
+      console.log(result, connect._status);
+      // Now use value of result
+      // player color div
+      const playerColorDiv = document.querySelector("#player-color");
+      const resultEl = document.querySelector("#result");
 
-    if (result === 3) {
-      connect._status = "stopped";
-      playerColorDiv.style.display = "none";
-      resultEl.style.textContent = "The Game is Tied";
-      resultEl.style.display = "block";
-    } else if (result === 2) {
-      connect._status = "stopped";
-      playerColorDiv.style.display = "none";
-      resultEl.style.textContent = "Player 2 Won!";
-      resultEl.style.display = "block";
-    } else if (result === 1) {
-      connect._status = "stopped";
-      playerColorDiv.style.display = "none";
-      resultEl.style.textContent = "Player 1 Won!";
-      resultEl.style.display = "block";
+      if (result === 3) {
+        // connect._status = "stopped";
+        playerColorDiv.style.display = "none";
+        resultEl.style.textContent = "The Game is Tied";
+        resultEl.style.display = "block";
+      } else if (result === 2) {
+        // connect._status = "stopped";
+        playerColorDiv.style.display = "none";
+        resultEl.style.textContent = "Player 2 Won!";
+        resultEl.style.display = "block";
+      } else if (result === 1) {
+        // connect._status = "stopped";
+        playerColorDiv.style.display = "none";
+        resultEl.style.textContent = "Player 1 Won!";
+        resultEl.style.display = "block";
+      }
     }
   });
 
