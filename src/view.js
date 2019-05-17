@@ -58,17 +58,19 @@ const generateDivElement = (connect, i, j, nestedChild) => {
       if (result === 3) {
         // connect._status = "stopped";
         playerColorDiv.style.display = "none";
-        resultEl.style.textContent = "The Game is Tied";
+        resultEl.textContent = "The Game is Tied";
         resultEl.style.display = "block";
       } else if (result === 2) {
         // connect._status = "stopped";
         playerColorDiv.style.display = "none";
-        resultEl.style.textContent = "Player 2 Won!";
+        resultEl.textContent = "Player 2 Won!";
+        resultEl.style.color = "#fe6869";
         resultEl.style.display = "block";
       } else if (result === 1) {
         // connect._status = "stopped";
         playerColorDiv.style.display = "none";
-        resultEl.style.textContent = "Player 1 Won!";
+        resultEl.textContent = "Player 1 Won!";
+        resultEl.style.color = "#fffc82";
         resultEl.style.display = "block";
       }
     }
