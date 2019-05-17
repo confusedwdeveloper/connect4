@@ -6,23 +6,54 @@ const isDraw = connect => (connect.count === 42 ? true : false);
 const checkHorizontal = (connect, i, j, turn) => {
   const arr = [...connect.data];
   const newArr = arr[i];
-  const four = newArr[j];
-  const three = newArr[j - 1];
-  const two = newArr[j - 2];
-  const one = newArr[j - 3];
-  const five = newArr[j + 1];
-  const six = newArr[j + 2];
-  const seven = newArr[j + 3];
-  if (one + two + three + four === turn * 4) {
+  let four = newArr[j];
+  let three;
+  try {
+    three = newArr[j - 1];
+  } catch (e) {
+    three = 0;
+  }
+  let two;
+  try {
+    two = newArr[j - 2];
+  } catch (e) {
+    two = 0;
+  }
+  let one;
+  try {
+    one = newArr[j - 3];
+  } catch (e) {
+    one = 0;
+  }
+  let five;
+  try {
+    five = newArr[j + 1];
+  } catch (e) {
+    five = 0;
+  }
+  let six;
+  try {
+    six = newArr[j + 2];
+  } catch (e) {
+    six = 0;
+  }
+  let seven;
+  try {
+    seven = newArr[j + 3];
+  } catch (e) {
+    seven = 0;
+  }
+
+  if (one === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + two + three + four === turn * 4) {
+  if (five === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + six + seven + four === turn * 4) {
+  if (five === turn && six === turn && seven === turn && four === turn) {
     return 1;
   }
-  if (six + five + three + four === turn * 4) {
+  if (six === turn && five === turn && three === turn && four === turn) {
     return 1;
   }
   return 0;
@@ -31,23 +62,55 @@ const checkHorizontal = (connect, i, j, turn) => {
 // function to check vertical win
 const checkVertical = (connect, i, j, turn) => {
   const arr = [...connect.data];
-  const four = arr[i][j];
-  const three = arr[i - 1][j];
-  const two = arr[i - 2][j];
-  const one = arr[i - 3][j];
-  const five = arr[i + 1][j];
-  const six = arr[i + 2][j];
-  const seven = arr[i + 3][j];
-  if (one + two + three + four === turn * 4) {
+  let four = arr[i][j];
+  let three;
+  try {
+    three = arr[i - 1][j];
+  } catch (e) {
+    three = 0;
+  }
+  let two;
+  try {
+    two = arr[i - 2][j];
+  } catch (e) {
+    two = 0;
+  }
+  let one;
+  try {
+    one = arr[i - 3][j];
+  } catch (e) {
+    one = 0;
+  }
+  let five;
+  try {
+    five = arr[i + 1][j];
+  } catch (e) {
+    five = 0;
+  }
+  let six;
+  try {
+    six = arr[i + 2][j];
+  } catch (e) {
+    six = 0;
+  }
+
+  let seven;
+  try {
+    seven = arr[i + 3][j];
+  } catch (e) {
+    seven = 0;
+  }
+
+  if (one === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + two + three + four === turn * 4) {
+  if (five === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + six + seven + four === turn * 4) {
+  if (five === turn && six === turn && seven === turn && four === turn) {
     return 1;
   }
-  if (six + five + three + four === turn * 4) {
+  if (six === turn && five === turn && three === turn && four === turn) {
     return 1;
   }
   return 0;
@@ -56,24 +119,54 @@ const checkVertical = (connect, i, j, turn) => {
 // function to check right top to left bottom (rtlbDiagonal) diagonal
 const rtlbDiagonal = (connect, i, j, turn) => {
   const arr = [...connect.data];
-  const four = arr[i][j];
-  const three = arr[i - 1][j + 1];
-  const two = arr[i - 2][j + 2];
-  const one = arr[i - 3][j + 3];
-  const five = arr[i + 1][j - 1];
-  const six = arr[i + 2][j - 2];
-  const seven = arr[i + 3][j - 3];
+  let four = arr[i][j];
+  let three;
+  try {
+    three = arr[i - 1][j + 1];
+  } catch (e) {
+    three = 0;
+  }
+  let two;
+  try {
+    two = arr[i - 2][j + 2];
+  } catch (e) {
+    two = 0;
+  }
+  let one;
+  try {
+    one = arr[i - 3][j + 3];
+  } catch (e) {
+    one = 0;
+  }
+  let five;
+  try {
+    five = arr[i + 1][j - 1];
+  } catch (e) {
+    five = 0;
+  }
+  let six;
+  try {
+    six = arr[i + 2][j - 2];
+  } catch (e) {
+    six = 0;
+  }
+  let seven;
+  try {
+    seven = arr[i + 3][j - 3];
+  } catch (e) {
+    seven = 0;
+  }
 
-  if (one + two + three + four === turn * 4) {
+  if (one === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + two + three + four === turn * 4) {
+  if (five === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + six + seven + four === turn * 4) {
+  if (five === turn && six === turn && seven === turn && four === turn) {
     return 1;
   }
-  if (six + five + three + four === turn * 4) {
+  if (six === turn && five === turn && three === turn && four === turn) {
     return 1;
   }
   return 0;
@@ -82,24 +175,54 @@ const rtlbDiagonal = (connect, i, j, turn) => {
 // functionnto check left top to right bottom (ltrbDiagonal) diagonal
 const ltrbDiagonal = (connect, i, j, turn) => {
   const arr = [...connect.data];
-  const four = arr[i][j];
-  const three = arr[i - 1][j - 1];
-  const two = arr[i - 2][j - 2];
-  const three = arr[i - 3][j - 3];
-  const five = arr[i + 1][j + 1];
-  const six = arr[i + 2][j + 2];
-  const seven = arr[i + 3][j + 3];
+  let four = arr[i][j];
+  let three;
+  try {
+    three = arr[i - 1][j - 1];
+  } catch (e) {
+    three = 0;
+  }
+  let two;
+  try {
+    two = arr[i - 2][j - 2];
+  } catch (e) {
+    two = 0;
+  }
+  let one;
+  try {
+    one = arr[i - 3][j - 3];
+  } catch (e) {
+    one = 0;
+  }
+  let five;
+  try {
+    five = arr[i + 1][j + 1];
+  } catch (e) {
+    five = 0;
+  }
+  let six;
+  try {
+    six = arr[i + 2][j + 2];
+  } catch (e) {
+    six = 0;
+  }
+  let seven;
+  try {
+    seven = arr[i + 3][j + 3];
+  } catch (e) {
+    seven = 0;
+  }
 
-  if (one + two + three + four === turn * 4) {
+  if (one === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + two + three + four === turn * 4) {
+  if (five === turn && two === turn && three === turn && four === turn) {
     return 1;
   }
-  if (five + six + seven + four === turn * 4) {
+  if (five === turn && six === turn && seven === turn && four === turn) {
     return 1;
   }
-  if (six + five + three + four === turn * 4) {
+  if (six === turn && five === turn && three === turn && four === turn) {
     return 1;
   }
   return 0;

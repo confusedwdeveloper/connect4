@@ -8,12 +8,12 @@ class Connect4 {
     this._status = "playing"; // game status
 
     this.data = [
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
     ];
   }
   get count() {
@@ -43,12 +43,12 @@ class Connect4 {
     this._count = 0;
     this._status = "playing";
     this.data = [
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray,
-      this.childrenArray
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0]
     ];
   }
 }
