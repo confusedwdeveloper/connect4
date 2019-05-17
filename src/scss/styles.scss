@@ -62,11 +62,32 @@ main {
     // display: none;
   }
 }
+.prediv {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  .status {
+    display: flex;
+    justify-content: space-between;
+
+    #player-color {
+      // background-color: $player-2-color;
+      height: 60px;
+      border-radius: 50%;
+      width: 60px;
+    }
+    #result {
+      color: #fff;
+    }
+  }
+}
 
 .div {
   width: 100%;
   background-color: $body-color;
-  border-radius: 500%;
+  border-radius: 50%;
   height: 60px;
 }
 // %player-x-div {
