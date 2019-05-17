@@ -140,3 +140,10 @@ button:hover {
 button:hover::before {
   transform: translate(-50%, 50%) scale(15);
 }
+
+// Media queries
+@media (max-width: 600px) {
+  .root {
+    max-width: 600vw;
+  }
+}
