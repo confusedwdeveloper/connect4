@@ -144,6 +144,6 @@ button:hover::before {
 // Media queries
 @media (max-width: 600px) {
   .root {
-    max-width: 600vw;
+    width: 70vw;
   }
 }
