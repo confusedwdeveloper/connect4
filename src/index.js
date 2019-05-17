@@ -9,5 +9,6 @@ render(connect);
 // wire up reset button
 document.querySelector(".button").addEventListener("click", e => {
   connect.reset();
+  document.querySelector("#result").style.display = "none";
   render(connect);
 });
