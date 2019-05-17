@@ -74,6 +74,7 @@ main {
   .status {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     // max-width: 200px;
     // width: 100%;
 
@@ -142,8 +143,59 @@ button:hover::before {
 }
 
 // Media queries
-@media (max-width: 600px) {
-  .root {
-    width: 70vw;
+// looks good until 800
+
+@media (max-width: 685px) {
+  .root,
+  .prediv {
+    width: 60vw;
+    max-width: auto;
+  }
+  .div {
+    height: 50px;
+  }
+  header .nav {
+    max-width: 40vw;
+    justify-content: space-between;
+    margin-right: 0.5rem;
+  }
+  header h1 {
+    padding: 0;
+    font-size: 2rem;
+    // margin: inherit 0;
+  }
+}
+@media (max-width: 650px) {
+  .div {
+    height: 8vh;
+  }
+
+  .prediv .status #player-color {
+    width: 8vh;
+    height: 8vh;
+  }
+  header .nav a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 450px) {
+  .root,
+  .prediv {
+    width: calc(7.5vh * 6 + 30px);
+    // max-width: auto;
+  }
+  .div {
+    height: 7.5vh;
+  }
+  .prediv .status #player-color {
+    width: 7.5vh;
+    height: 7.5vh;
+  }
+}
+@media (max-width: 350px) {
+  header h1 {
+  }
+  header .nav a {
+    font-size: 0.8rem;
   }
 }
