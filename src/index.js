@@ -10,5 +10,6 @@ render(connect);
 document.querySelector(".button").addEventListener("click", e => {
   connect.reset();
   document.querySelector("#result").style.display = "none";
+  document.querySelector("#player-color").style.display = "block";
   render(connect);
 });
