@@ -50,7 +50,6 @@ const generateDivElement = (connect, i, j, nestedChild) => {
       }
 
       render(connect);
-      console.log(result, connect._status);
       // Now use value of result
       // player color div
       const playerColorDiv = document.querySelector("#player-color");
